@@ -291,12 +291,10 @@ Dentro de la carpeta **models**, crear los siguientes archivos:
               }
           }
           ?>
-```
--   **TutorModel.php**: Implementa funciones para gestionar tutores y
-asignaturas (registro de tutor, obtener tutores, asignaturas). Colocar
-el siguiente código allí:
 
-```php
+-   **TutorModel.php**: Implementa funciones para gestionar tutores y asignaturas (registro de tutor, obtener tutores, asignaturas). Colocar el siguiente código allí:
+
+        ```php
         <?php
             require_once ('config.php');
         
@@ -1983,6 +1981,7 @@ solicitar tutoría → admin aprueba → logout.
 
 Al completar estos pasos, tendrás un sistema de tutorías funcional y
 escalable.
+
 
 
 
