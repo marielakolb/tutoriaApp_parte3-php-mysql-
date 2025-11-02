@@ -293,8 +293,7 @@ Dentro de la carpeta **models**, crear los siguientes archivos:
           ?>
 
 -   **TutorModel.php**: Implementa funciones para gestionar tutores y asignaturas (registro de tutor, obtener tutores, asignaturas). Colocar el siguiente código allí:
-
-        ```php
+   ```php
         <?php
             require_once ('config.php');
         
@@ -1372,14 +1371,13 @@ verifica que no haya errores PHP. Usa **var_dump** para depurar si es
 necesario.
 
 ## Paso 4: Creación de las Vistas (Capa de Presentación): 
-Las vistas
-son los archivos HTML/PHP que el usuario ve. Crea cada vista
+Las vistas son los archivos HTML/PHP que el usuario ve. Crea cada vista
 asegurándote de que incluyan formularios funcionales y muestren datos
 dinámicos. Crear las siguientes vistas en la carpeta **views**:
 
 -   **home.php**: Página principal con formulario de login y lista de
     tutores. Escribir el siguiente código:
-
+```html
         <!DOCTYPE html>
         <html>
         <head>
@@ -1438,10 +1436,10 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
             </ul>
         </body>
         </html>
+```
 
--   **login.php**: Formulario de inicio de sesión. Escribir el siguiente
-    código:
-
+-   **login.php**: Formulario de inicio de sesión. Escribir el siguiente código:
+```html
           <!DOCTYPE html>
           <html>
           <head>
@@ -1461,9 +1459,9 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
               <p><a href="index.php?action=home">Volver al Inicio</a></p>
           </body>
           </html>
-
+```
 -   **register.php**: Formulario de registro de usuario.
-
+```html
         <!DOCTYPE html>
         <html>
         <head>
@@ -1501,10 +1499,10 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
             </ul>
         </body>
         </html>
-
+```
 -   **edit_profile.php**: Formulario para editar perfil y subir foto.
     Escribir el siguiente código:
-
+```html
         <!DOCTYPE html>
         <html>
         <head>
@@ -1545,10 +1543,10 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
             <a href="index.php?action=home">Volver</a>
         </body>
         </html>
-
+```
 -   **register_tutor.php**: Formulario para registrarse como tutor.
     Escribir el siguiente código:
-
+```html
         <!DOCTYPE html> <!-- Declara documento HTML5 -->
         <html> <!-- Inicio del documento HTML -->
         <head> <!-- Sección de encabezado -->
@@ -1570,10 +1568,10 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
             <a href="index.php?action=home">Volver</a> <!-- Enlace para volver -->
         </body> <!-- Fin cuerpo -->
         </html> <!-- Fin documento HTML -->
-
+```
 -   **request_tutoria.php**: Formulario para solicitar una tutoría a un
     tutor específico. Escribir el siguiente código:
-
+```html
         <!DOCTYPE html> <!-- Declara documento HTML5 -->
         <html> <!-- Inicio del documento HTML -->
         <head> <!-- Sección de encabezado -->
@@ -1601,10 +1599,10 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
             <a href="index.php?action=home">Volver</a> <!-- Enlace para volver -->
         </body> <!-- Fin cuerpo -->
         </html> <!-- Fin documento HTML -->
-
+```
 -   **my_requests.php\*\***: Lista de solicitudes de tutoría del
     usuario. Escribir el siguiente código:
-
+```html
         <!DOCTYPE html> <!-- Declara documento HTML5 -->
         <html> <!-- Inicio del documento HTML -->
         <head> <!-- Sección de encabezado -->
@@ -1620,7 +1618,6 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
             $accepted = array_filter($requests, function($r) { return $r['estado'] === 'aceptada'; });
             $rejected = array_filter($requests, function($r) { return $r['estado'] === 'rechazada'; });
             ?>
-        
             <h3>Solicitudes Pendientes</h3>
             <ul>
                 <?php foreach ($pending as $request): ?>
@@ -1640,7 +1637,6 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
                     </li>
                 <?php endforeach; ?>
             </ul>
-        
             <h3>Solicitudes Aceptadas</h3>
             <ul>
                 <?php foreach ($accepted as $request): ?>
@@ -1655,9 +1651,10 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
             <a href="index.php?action=home">Volver</a> <!-- Enlace para volver -->
         </body> <!-- Fin cuerpo -->
         </html> <!-- Fin documento HTML -->
+```
 -   **admin_dashboard.php**: Panel de admin con gestión de usuarios,
     asignaturas y solicitudes. Escribir el siguiente código:
-
+```html
         <!DOCTYPE html>
         <html>
         <head>
@@ -1666,10 +1663,8 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
         <body>
             <h2>Panel de Administrador</h2>
             <p>Bienvenido, <?php echo $_SESSION['nombre']; ?> (Admin) | <a href="index.php?action=logout">Cerrar Sesión</a></p>
-        
             <h3>Gestión de Usuarios</h3>
             <a href="index.php?action=register_user">Registrar Nuevo Usuario</a>
-        
             <h3>Gestión de Asignaturas</h3>
             <a href="index.php?action=add_asignatura">Agregar Nueva Asignatura</a>
             <ul>
@@ -1681,7 +1676,6 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
                     </li>
                 <?php endforeach; ?>
             </ul>
-        
             <h3>Lista de Usuarios</h3>
             <ul>
                 <?php foreach ($usuarios as $usuario): ?>
@@ -1698,7 +1692,6 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
                     </li>
                 <?php endforeach; ?>
             </ul>
-        
             <h3>Lista de Tutores</h3>
             <ul>
                 <?php foreach ($tutores as $tutor): ?>
@@ -1707,7 +1700,6 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
                     </li>
                 <?php endforeach; ?>
             </ul>
-        
             <h3>Solicitudes Pendientes</h3>
             <ul>
                 <?php foreach ($pendingRequests as $request): ?>
@@ -1718,7 +1710,6 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
                     </li>
                 <?php endforeach; ?>
             </ul>
-        
             <h3>Solicitudes Aceptadas</h3>
             <ul>
                 <?php foreach ($acceptedRequests as $request): ?>
@@ -1729,10 +1720,10 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
             </ul>
         </body>
         </html>
-
+```
 -   **add_asignatura.php**: Formulario para agregar asignaturas (solo
     admin).
-
+```html
         <!DOCTYPE html>
         <html>
         <head>
@@ -1750,10 +1741,10 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
             <a href="index.php?action=admin_dashboard">Volver al Panel</a>
         </body>
         </html>
-
+```
 -   **edit_asignatura.php**: Formulario para editar asignaturas (solo
     admin). Escribir el siguiente código:
-
+```html
         <!DOCTYPE html>
         <html>
         <head>
@@ -1772,10 +1763,10 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
             <a href="index.php?action=admin_dashboard">Volver al Panel</a>
         </body>
         </html>
-
+```
 -   **register_user.php**: Formulario para registrar nuevos usuarios
     (solo admin). Escribir el siguiente código:
-
+```html
         <!DOCTYPE html>
         <html>
         <head>
@@ -1802,7 +1793,7 @@ dinámicos. Crear las siguientes vistas en la carpeta **views**:
             <a href="index.php?action=admin_dashboard">Volver al Panel</a>
         </body>
         </html>
-
+```
 **Verificación**: Para cada vista, navega a la acción correspondiente:
 index.php?action=login y verifica que se renderice correctamente. Prueba
 formularios básicos sin errores de sintaxis.
@@ -1814,7 +1805,7 @@ directamente en la carpeta del proyecto, tutoriaApp3:
 -   **index.php**: Implementa el enrutamiento basado en el parámetro
     action (ej. action=home llama a HomeController::index()). Incluye
     manejo de sesiones y redirecciones. Escribir el siguiente código:
-
+```php
         <?php
         require_once('controllers/AuthController.php');
         require_once('controllers/HomeController.php');
@@ -1935,7 +1926,7 @@ directamente en la carpeta del proyecto, tutoriaApp3:
                 break;
         }
         ?>
-
+```
 **Verificación**: Prueba todas las rutas posibles (home, login,
 register, admin_dashboard, etc.) y asegúrate de que carguen las vistas
 correctas sin errores 404 o PHP.
@@ -1981,6 +1972,7 @@ solicitar tutoría → admin aprueba → logout.
 
 Al completar estos pasos, tendrás un sistema de tutorías funcional y
 escalable.
+
 
 
 
